@@ -1,0 +1,29 @@
+{
+  "name": "samplepad4-editor",
+  "version": "0.1.0",
+  "description": "Lightweight Alesis SamplePad 4 kit mapper",
+  "main": "main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.samplepad4.editor",
+    "productName": "SamplePad4 Kit Mapper",
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

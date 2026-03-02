@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SamplePad 4 Kit Mapper</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>SamplePad 4 Kit Mapper</h1>
+      <p class="subtitle">Map WAV files from your SD card to SamplePad 4 pads and save a compatible .KIT file.</p>
+
+      <section class="panel">
+        <div class="row">
+          <label>SD Card Root</label>
+          <button id="selectSdRoot">Select Folder</button>
+          <span id="sdRootPath" class="path"></span>
+        </div>
+        <div class="row">
+          <label>Template .KIT (working file)</label>
+          <button id="selectTemplate">Select .KIT</button>
+          <span id="templatePath" class="path"></span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Pad Mappings</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Pad</th>
+              <th>MIDI Note</th>
+              <th>Sample (.wav stem)</th>
+            </tr>
+          </thead>
+          <tbody id="mappingRows"></tbody>
+        </table>
+      </section>
+
+      <section class="panel actions">
+        <button id="saveKit">Save New .KIT</button>
+        <span id="status"></span>
+      </section>
+
+      <section class="panel" id="renamePanel">
+        <h2>Rename Warnings</h2>
+        <div class="actions">
+          <button id="applySuggestedRenames">Apply Suggested Names (Copy WAVs)</button>
+        </div>
+        <ul id="renameWarnings"></ul>
+      </section>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
