@@ -36,6 +36,55 @@ npm run dist:win
 
 Installer output will be in `dist/`.
 
+## If you work from WSL
+
+If `npm` is missing in WSL (`zsh: command not found: npm`), build from native Windows PowerShell instead of WSL:
+
+1. Install Node.js LTS on Windows:
+
+```powershell
+winget install OpenJS.NodeJS.LTS
+```
+
+2. Open **Windows PowerShell** (not WSL), then go to this project folder. Example via WSL share:
+
+```powershell
+cd "\\wsl$\Ubuntu\home\sylvansky\dev\samplepad4-editor"
+```
+
+3. Install dependencies and build installer:
+
+```powershell
+npm install
+npm run dist:win
+```
+
+4. Run the generated installer from `dist\` in Windows.
+
+For dev mode in Windows (with Electron UI):
+
+```powershell
+npm start
+```
+
+### One-command Windows build
+
+The build scripts automatically stage the project to a local Windows temp folder first, so Electron/npm do not fail on UNC paths (`\\wsl.localhost\...`).
+
+From Windows PowerShell:
+
+```powershell
+cd "\\wsl.localhost\Ubuntu-24.04\home\sylvansky\dev\samplepad4-editor"
+powershell -ExecutionPolicy Bypass -File .\build-win.ps1
+```
+
+From Windows Command Prompt:
+
+```bat
+cd \\wsl.localhost\Ubuntu-24.04\home\sylvansky\dev\samplepad4-editor
+build-win.cmd
+```
+
 ## Recommended workflow with your SD card
 
 1. Back up your SD card first.
